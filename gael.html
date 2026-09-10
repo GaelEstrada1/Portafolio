@@ -17,18 +17,31 @@
 
 <body>
     <header>
-        <h1>Gael</h1>
+      <a>
+        <img src="./assets/dallas.jpg" alt="dallas logo" class="logo"></a>
     </header>
-
+<!--tarjeta giratoria-->
   <section id="center">
 
     <div class="hero">
-      <img
-        src="./assets/gael (2).png"
-        class="base"
-        alt="Fernando Gael Estrada Velasco"
-      >
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img
+              src="./assets/gael (2).png"
+              class="base"
+              alt="Fernando Gael Estrada Velasco"
+            >
+          </div>
+          <div class="flip-card-back">
+            <p>Fernando Gael Estrada Velasco</p>
+            <p>Ingeniero en Sistemas Computacionales</p>
+            <p>Softtek | Chiapas | TecNM</p>
+          </div>
+        </div>
+      </div>
     </div>
+                     <!--fin-->
 
     <div class="logos">
       <img src="./assets/sofftek.png" alt="Softtek logo">
@@ -53,6 +66,101 @@
 
   </section>
 
+<section id="incognitas">
+    <div class="incognitas">
+      <div class="incognita">
+        <h3>Monterrey</h3>
+        <h4>¿odio o amor?</h4>
+
+        <div class="pros-contras">
+          <div class="pros">
+            <h5>Pros</h5>
+            <ul>
+              <li>Las empresas que hay</li>
+              <li>Los lugares para visitar</li>
+              <li>Su acento divertido</li>
+            </ul>
+          </div>
+
+          <div class="contras">
+            <h5>Contras</h5>
+            <ul>
+              <li>El calor</li>
+              <li>El tráfico</li>
+              <li>Los precios</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="incognita">
+        <h3>Chiapas</h3>
+        <h4>¿odio u odio?</h4>
+
+        <div class="pros-contras">
+          <div class="pros">
+            <h5>Contras</h5>
+            <ul>
+              <li>Sus paisajes naturales</li>
+              <li>Su cultura y tradiciones</li>
+              <li>Su gastronomía</li>
+            </ul>
+          </div>
+
+          <div class="contras">
+            <h5>Más Contras</h5>
+            <ul>
+              <li>Las distancias entre lugares</li>
+              <li>El transporte</li>
+              <li>El clima cambiante</li>
+            </ul>
+          </div>
+        </div>
+
+        <button class="chiapas-button" id="chiapas-toggle" type="button" aria-expanded="false">
+          <i class="fa-solid fa-heart"></i>
+          <span>Broma a mi mismo</span>
+        </button>
+
+        <div class="chiapas-real" hidden>
+          <h4>El Chiapas real</h4>
+
+          <div class="chiapas-real-grid">
+            <div>
+              <img
+                src="./assets/canon.jpg"
+                alt="Paisaje del Cañón del Sumidero en Chiapas"
+              >
+              <h5>Paisajes increíbles</h5>
+              <p>Desde el Cañón del Sumidero hasta Palenque y sus cascadas, Chiapas tiene lugares únicos para conocer.</p>
+            </div>
+
+            <div>
+              <img
+                src="./assets/parachicos.jpg"
+                alt="Danza tradicional de Chiapas"
+              >
+              <h5>Cultura y tradiciones</h5>
+              <p>Sus pueblos, lenguas, artesanías y tradiciones hacen que cada visita tenga algo especial.</p>
+            </div>
+
+            <div>
+              <img
+                src="./assets/sancris.jpg"
+                alt="Calle de San Cristóbal de las Casas, Chiapas"
+              >
+              <h5>Un lugar para volver</h5>
+              <p>La comida, la gente y la naturaleza hacen que Chiapas se sienta como un lugar que siempre tiene algo más que ofrecer.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+    </section>
 
   <div class="ticks"></div>
 
@@ -149,6 +257,29 @@
   <footer>
     <p>&copy; 2023 Gael. Todos los derechos reservados.</p>
   </footer>
+
+  <script>
+    const chiapasSection = document.querySelector('.incognita:nth-child(2)');
+    const chiapasButton = chiapasSection.querySelector('#chiapas-toggle');
+    const chiapasIcon = chiapasButton.querySelector('i');
+    const chiapasButtonText = chiapasButton.querySelector('span');
+    const chiapasJoke = chiapasSection.querySelector('.pros-contras');
+    const chiapasReal = chiapasSection.querySelector('.chiapas-real');
+
+    chiapasButton.addEventListener('click', () => {
+      const showingRealSection = chiapasReal.hidden;
+
+      chiapasJoke.hidden = showingRealSection;
+      chiapasReal.hidden = !showingRealSection;
+      chiapasButton.setAttribute('aria-expanded', String(showingRealSection));
+      chiapasIcon.className = showingRealSection
+        ? 'fa-solid fa-arrow-left'
+        : 'fa-solid fa-heart';
+      chiapasButtonText.textContent = showingRealSection
+        ? 'Volver'
+        : 'Broma a mi mismo';
+    });
+  </script>
 
 </body>
 
